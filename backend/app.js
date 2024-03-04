@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
-
+const genderRoutes = require('./routes/genderRoutes');
+const logoutRoutes = require('./routes/logoutRoutes'); // Import logout routes
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,7 +21,8 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/auth', authRoutes);
-
+app.use('/gen', genderRoutes);
+app.use( logoutRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
